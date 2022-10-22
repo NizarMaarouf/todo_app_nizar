@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, file_names, avoid_print
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, file_names, avoid_print, unrelated_type_equality_checks
 
 import 'package:flutter/material.dart';
 
@@ -36,9 +36,10 @@ class Todecard extends StatelessWidget {
               Text(
                 vartitle,
                 style: TextStyle(
-                  color: Colors.black,
+                  color: doneORnot ? Colors.black : Colors.white,
                   fontSize: 25,
                   fontFamily: 'myfont1',
+                decoration: doneORnot ? TextDecoration.lineThrough :  TextDecoration.none,
                 ),
               ),
               Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
