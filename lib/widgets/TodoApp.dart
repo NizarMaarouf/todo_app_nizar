@@ -11,6 +11,7 @@ class TodoApp extends StatefulWidget {
   State<TodoApp> createState() => _TodoAppState();
 }
 
+// class for task(todo-card)
 class Task {
   String title;
   bool status;
@@ -21,6 +22,7 @@ class Task {
 }
 
 class _TodoAppState extends State<TodoApp> {
+  // list of todos
   List allTasks = [
     Task(title: "Publish video", status: false),
     Task(title: "Laugh louder", status: true),
@@ -28,27 +30,30 @@ class _TodoAppState extends State<TodoApp> {
     Task(title: "call mom", status: true),
   ];
 
+// To change the state of todo (completed or not completed) when click on the todo
   changeStatus(int taskIndex) {
     setState(() {
       // allTasks[0].status == false ?   allTasks[0].status = true :allTasks[0].status =false;
       allTasks[taskIndex].status = !allTasks[taskIndex].status;
       // allTasks[taskIndex].status == true ?  TextStyle() : allTasks[taskIndex].title;
-
     });
   }
 
+// To remove todo when clicking on "delete" icon
   delete(int inum) {
     setState(() {
       allTasks.remove(allTasks[inum]);
     });
   }
 
+// To remove all todos when clicking on "delete forever" icon in the appbar
   deleteall() {
     setState(() {
       allTasks.removeRange(0, allTasks.length);
     });
   }
 
+// To add new todo task when clicking on "ADD" in the dialog widget
   addnewtask() {
     setState(() {
       allTasks.add(
@@ -57,11 +62,16 @@ class _TodoAppState extends State<TodoApp> {
     });
   }
 
+//create controller to get the text insude the texfield
   final myController = TextEditingController();
+
+// give me int of index of length of the task list
   countTask() {
     return allTasks.length;
   }
 
+// to calculate only completed todos
+// with for functaion we can do it with forEach
   countDone() {
     int completTask = 0;
     setState(() {
@@ -165,6 +175,7 @@ class _TodoAppState extends State<TodoApp> {
                     int index,
                   ) {
                     return Todecard(
+                      // I will pass all these information when create the Todocard() widget in "todo-card.dart" file
                       vartitle: allTasks[index].title,
                       doneORnot: allTasks[index].status,
                       index: index,

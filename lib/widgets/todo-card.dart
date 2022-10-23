@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, file_names, avoid_print, unrelated_type_equality_checks
 
 import 'package:flutter/material.dart';
-
+// class of the Todo card  
 class Todecard extends StatelessWidget {
   final String vartitle;
   final bool doneORnot;
@@ -25,6 +25,7 @@ class Todecard extends StatelessWidget {
       onTap: () {
         myfunc(index);
       },
+      // to change the with of the task  when change the with of the boody app
       child: FractionallySizedBox(
         widthFactor: 0.9,
         child: Container(
@@ -39,7 +40,9 @@ class Todecard extends StatelessWidget {
                   color: doneORnot ? Colors.black : Colors.white,
                   fontSize: 25,
                   fontFamily: 'myfont1',
-                decoration: doneORnot ? TextDecoration.lineThrough :  TextDecoration.none,
+                  decoration: doneORnot
+                      ? TextDecoration.lineThrough
+                      : TextDecoration.none,
                 ),
               ),
               Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
